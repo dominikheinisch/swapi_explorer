@@ -1,0 +1,50 @@
+{% extends "explorer_app/base.html" %}
+
+{% block title %} File {% endblock %}
+
+{% block content %}
+
+<div class="field">
+    <div class="title">
+        {{ filename }}
+    </div>
+    <p class="control">
+        <a href="{% url 'explorer_app:count' filename %}">
+            <button name="view_count" class="button is-info">View count</button>
+        </a>
+    </p>
+</div>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                {% for field in table_head %}
+                    <th scope="col">{{ field }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for table_row in table_body %}
+                <tr>
+                    {% for table_elem in table_row %}
+                        <td>
+                            {{ table_elem }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="field">
+    <form method="POST" action="{% url 'explorer_app:file' filename %}">
+        {% csrf_token %}
+        <p class="control">
+            <button name="load_more" value="{{ counter }}" class="button is-info">Load more</button>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

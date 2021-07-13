@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-item">
+                            <div class="label has-text-white">
+                                Star Wars Explorer
+                            </div>
+                        </div>
+                        <a href="/" class="navbar-item">
+                            Collections
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container is-align-self-center">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

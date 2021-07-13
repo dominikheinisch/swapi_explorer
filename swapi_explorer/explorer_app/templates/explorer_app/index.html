@@ -1,0 +1,46 @@
+{% extends "explorer_app/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="field">
+    <div class="title">
+        Collections
+    </div>
+    <form method="POST" action="{% url 'explorer_app:index' %}">
+        {% csrf_token %}
+        <p class="control">
+            <button name="fetch" class="button is-info">Fetch</button>
+        </p>
+    </form>
+</div>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Creation date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in file_list %}
+                <tr>
+                    <td>
+                        <div class="has-text-link">
+                            <a href="{% url 'explorer_app:file' file.name %}">
+                                {{ file.name }}
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        {{ file.creation_date }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

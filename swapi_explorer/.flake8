@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 127
+per-file-ignores =
+    swapi_explorer/settings_dev.py: F401, F403
+    swapi_explorer/settings_prod.py: F401, F403

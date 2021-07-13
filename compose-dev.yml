@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    volumes:
+      - "./volumes/db_data/:/var/lib/postgresql/data"
+
+  backend:
+    build: ./swapi_explorer
+    command:
+      sh -c "
+        ./docker-entrypoint.sh &&
+        python -u manage.py runserver 0.0.0.0:8000
+      "
+    environment:
+      DJANGO_SETTINGS_MODULE: swapi_explorer.settings_dev
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    restart: on-failure
+    volumes:
+      - "./volumes/storage/:/app/storage"

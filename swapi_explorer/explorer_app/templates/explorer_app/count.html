@@ -1,0 +1,50 @@
+{% extends "explorer_app/base.html" %}
+
+{% block title %} Value count {% endblock %}
+
+{% block content %}
+
+<div class="field">
+    <div class="title">
+        {{ filename }}
+    </div>
+    <div class="buttons">
+        <form method="POST" action="{% url 'explorer_app:count' filename %}">
+            {% csrf_token %}
+            <input type="hidden" name="buttons" value="{{ buttons }}">
+            {% for button_name, is_highlighted in buttons.items %}
+                <button name="selected_button"
+                        value="{{ button_name }}"
+                        class="button {% if is_highlighted %} is-info {% endif %}">
+                    {{ button_name }}
+                </button>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                {% for field in table_head %}
+                    <th scope="col">{{ field }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for table_row in table_body %}
+                <tr>
+                    {% for table_elem in table_row %}
+                        <td>
+                            {{ table_elem }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

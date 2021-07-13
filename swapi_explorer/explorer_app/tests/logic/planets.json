@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Tatooine",
+        "rotation_period": "23",
+        "orbital_period": "304",
+        "diameter": "10465",
+        "climate": "arid",
+        "gravity": "1 standard",
+        "terrain": "desert",
+        "surface_water": "1",
+        "population": "200000",
+        "created": "2014-12-09T13:50:49.641000Z",
+        "edited": "2014-12-20T20:58:18.411000Z",
+        "url": "https://swapi.dev/api/planets/1/"
+    },
+    {
+        "name": "Corellia",
+        "rotation_period": "25",
+        "orbital_period": "329",
+        "diameter": "11000",
+        "climate": "temperate",
+        "gravity": "1 standard",
+        "terrain": "plains, urban, hills, forests",
+        "surface_water": "70",
+        "population": "3000000000",
+        "created": "2014-12-10T16:49:12.453000Z",
+        "edited": "2014-12-20T20:58:18.456000Z",
+        "url": "https://swapi.dev/api/planets/22/"
+    }
+]
