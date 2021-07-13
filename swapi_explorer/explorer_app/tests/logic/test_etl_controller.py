@@ -5,14 +5,7 @@ from django.test import TestCase
 from unittest.mock import patch, MagicMock
 
 from explorer_app.logic.etl_controller import ETLController
-
-
-class WrappedResp:
-    def __init__(self, value):
-        self._value = value
-
-    def json(self):
-        return {'results': self._value}
+from explorer_app.tests.utils import WrappedResp
 
 
 @pytest.mark.usefixtures('planets')
@@ -20,7 +13,7 @@ class WrappedResp:
 class ETLControllerTest(TestCase):
     @patch.object(ETLController, 'load')
     def test_count(self, load_mock: MagicMock):
-        source = 'explorer_app/tests/logic/people.csv'
+        source = 'explorer_app/tests/data/people.csv'
         load_mock.return_value = etl.fromcsv(source)
         tbl = ETLController.count(source=source, by='gender')
         assert etl.dicts(tbl)[0].get('gender') == 'male'

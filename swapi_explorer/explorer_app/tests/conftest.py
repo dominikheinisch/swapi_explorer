@@ -11,7 +11,7 @@ def load_json(filename):
 
 @pytest.fixture()
 def people(request):
-    request.cls.people = (load_json(filename='explorer_app/tests/logic/people.json'),)
+    request.cls.people = (load_json(filename='explorer_app/tests/data/people.json'),)
 
 
 @pytest.fixture()
@@ -21,4 +21,4 @@ def people_table(request, people):
 
 @pytest.fixture()
 def planets(request):
-    request.cls.planets = (load_json(filename='explorer_app/tests/logic/planets.json'),)
+    request.cls.planets = (load_json(filename='explorer_app/tests/data/planets.json'),)

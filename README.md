@@ -9,7 +9,7 @@ SWAPI is currently down, so I used a mirror: https://swapi.dev/
 - Displaying list of fetched files 
 - Displaying data from file, `Load more` button
 - Displaying counted data from file, buttons for choose 
-- Displaying partially loaded file (file is accessible just after clicking `Fetch`, just access main page again)
+- Displaying partially loaded file (file is accessible immediately after clicking `Fetch`, just access main page again)
 - Using pagination
 - Using async requests (grequest), default 10 requests at a time
 - Using generators for batch of requests processing (batch is saved to file, before fetching next one)

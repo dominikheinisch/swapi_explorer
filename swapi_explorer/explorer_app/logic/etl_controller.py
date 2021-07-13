@@ -22,7 +22,7 @@ class ETLController:
         is_to_override = True
         for people_gen in DataFetcher(url=DataFetcher.PEOPLE_URL).async_fetch(limit=10):
             people = ETLUtils.prepare_people(people_gen, planets)
-            cls._save(people, source=filename, is_to_override=is_to_override)
+            cls._save(tbl=people, source=filename, is_to_override=is_to_override)
             is_to_override = False
 
     @classmethod
