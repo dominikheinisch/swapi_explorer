@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/dominikheinisch/dockerized_django_postgres/actions/workflows/CI_test.yml/badge.svg)](https://github.com/dominikheinisch/dockerized_django_postgres/actions/workflows/CI_test.yml)
+[![Build Status](https://github.com/dominikheinisch/swapi_explorer/actions/workflows/CI_test.yml/badge.svg)](https://github.com/dominikheinisch/swapi_explorer/actions/workflows/CI_test.yml)
 
 ## The Solution
 
